@@ -10,5 +10,6 @@ namespace NetCoreJwtAuth.Services.IRepository
     {
         bool isRegistered(User user);
         Task<bool> RegisterUser(User user);
+        string HashPassword(string password);
     }
 }

@@ -21,8 +21,17 @@ namespace NetCoreJwtAuth.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register([FromBody] UserDto request)
+        public async Task<IActionResult> Register([FromBody] UserDto request)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+
+            }
+
+
+
             var user = new User
             {
                 Name = request.Name,
@@ -34,27 +43,33 @@ namespace NetCoreJwtAuth.Controllers
             var isRegistered = _repository.isRegistered(user);
             if (isRegistered)
             {
-                return Redirect("https:localhost:7062/auth/login");
+                return Redirect("~/auth/login");
 
             }
 
             try
             {
+                var hashedPass = _repository.HashPassword(user.Password);
+                user.Password = hashedPass;
+                var result = await _repository.RegisterUser(user);
+                if (!result)
+                {
+                    return BadRequest(new { Error = "Error,user not registered!" });
 
+                }
+
+                //if already registered redirect to login
+                return Redirect("~/auth/login");
 
             }
             catch (System.Exception e)
             {
 
                 _logger.LogError(e.Message);
+                return StatusCode(500);
             }
 
 
-
-
-
-
-            return Ok();
         }
 
 
@@ -64,6 +79,15 @@ namespace NetCoreJwtAuth.Controllers
         {
             return Ok();
         }
+
+        [Route("login")]
+        [HttpGet]
+        public IActionResult LoginGet()
+        {
+            return Ok(new { Data = "login page" });
+        }
+
+
 
 
     }

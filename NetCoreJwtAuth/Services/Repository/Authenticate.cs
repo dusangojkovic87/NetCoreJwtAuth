@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using NetCoreJwtAuth.DataContext;
 using NetCoreJwtAuth.Entities;
 using NetCoreJwtAuth.Services.IRepository;
+using BC = BCrypt.Net.BCrypt;
 
 namespace NetCoreJwtAuth.Services.Repository
 {
@@ -17,6 +18,10 @@ namespace NetCoreJwtAuth.Services.Repository
 
         }
 
+        public string HashPassword(string password)
+        {
+            return BC.HashPassword(password);
+        }
 
         public bool isRegistered(User user)
         {
@@ -32,8 +37,8 @@ namespace NetCoreJwtAuth.Services.Repository
         public async Task<bool> RegisterUser(User user)
         {
             await _context.User.AddAsync(user);
-            var result = _context.SaveChangesAsync();
-            if (result.IsCompletedSuccessfully)
+            var result = await _context.SaveChangesAsync() > 0;
+            if (result)
             {
                 return true;
 

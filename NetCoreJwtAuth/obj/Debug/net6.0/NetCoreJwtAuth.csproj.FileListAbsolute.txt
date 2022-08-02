@@ -63,3 +63,4 @@ C:\Users\dusan\OneDrive\Desktop\NetCoreJwtAuth\NetCoreJwtAuth\obj\Debug\net6.0\r
 C:\Users\dusan\OneDrive\Desktop\NetCoreJwtAuth\NetCoreJwtAuth\obj\Debug\net6.0\NetCoreJwtAuth.pdb
 C:\Users\dusan\OneDrive\Desktop\NetCoreJwtAuth\NetCoreJwtAuth\obj\Debug\net6.0\NetCoreJwtAuth.genruntimeconfig.cache
 C:\Users\dusan\OneDrive\Desktop\NetCoreJwtAuth\NetCoreJwtAuth\obj\Debug\net6.0\ref\NetCoreJwtAuth.dll
+C:\Users\dusan\OneDrive\Desktop\NetCoreJwtAuth\NetCoreJwtAuth\bin\Debug\net6.0\BCrypt.Net-Core.dll

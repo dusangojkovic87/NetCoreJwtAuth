@@ -8,8 +8,7 @@ namespace NetCoreJwtAuth.Dtos
 {
     public class UserDto
     {
-        [Required]
-        public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
         [Required]

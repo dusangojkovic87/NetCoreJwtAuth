@@ -6,6 +6,13 @@ namespace NetCoreJwtAuth.Entities
 {
     public class User
     {
+        public User()
+        {
+            Role = "Customer";
+
+        }
+
+
         [Key]
         [Required]
         public int Id { get; set; }
