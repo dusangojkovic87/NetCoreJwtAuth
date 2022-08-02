@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rMfH9F6OxWF89gEh5DWTHe1f64uv17rigacu0rJBfGc=",
+  "Source": "NetCoreJwtAuth",
+  "BasePath": "_content/NetCoreJwtAuth",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
