@@ -33,7 +33,7 @@ namespace NetCoreJwtAuth.Controllers
 
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return ValidationProblem(ModelState);
 
             }
 
@@ -86,8 +86,7 @@ namespace NetCoreJwtAuth.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new { Error = "Fields cannot be empty!" });
-
+                return ValidationProblem(ModelState);
             }
 
             var user = new User
