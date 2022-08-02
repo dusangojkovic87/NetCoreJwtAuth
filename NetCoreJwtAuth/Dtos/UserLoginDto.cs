@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace NetCoreJwtAuth.Dtos
 {
-    public class UserDto
+    public class UserLoginDto
     {
-
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Surname { get; set; }
         [Required]
         public string Password { get; set; }
         [Required]
         public string Email { get; set; }
-
 
     }
 }

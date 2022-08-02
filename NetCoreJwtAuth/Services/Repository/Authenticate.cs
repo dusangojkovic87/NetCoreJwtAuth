@@ -18,6 +18,16 @@ namespace NetCoreJwtAuth.Services.Repository
 
         }
 
+        public bool CheckPassword(string passwordFromDb, string password)
+        {
+            return BC.Verify(password, passwordFromDb);
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return _context.User.FirstOrDefault(x => x.Email == email);
+        }
+
         public string HashPassword(string password)
         {
             return BC.HashPassword(password);

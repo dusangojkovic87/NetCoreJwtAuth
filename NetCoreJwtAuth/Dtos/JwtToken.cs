@@ -11,7 +11,7 @@ namespace NetCoreJwtAuth.Models
         [Required]
         public string Token { get; set; }
         [Required]
-        public string Expiration { get; set; }
+        public DateTime Expiration { get; set; }
         [Required]
         public bool isAuthenticated { get; set; }
     }
